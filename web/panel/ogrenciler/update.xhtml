@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/adminpagenavbar.xhtml">
+
+    <ui:define name="content">
+
+        <h:form>
+            <div class="form-group">
+                <label>Ogrenci Tc:</label>
+                <h:inputText styleClass="form-control" value="#{ogrencilerBean.entity.ogrenci_tc}"/> <br/>
+            </div>
+            <div class="form-group">
+                <label>Ogrenci ad:</label>
+                <h:inputText styleClass="form-control" value="#{ogrencilerBean.entity.ogrenci_ad}"/> <br/>
+            </div>
+            <div class="form-group">
+                <label>Oğrenci soyad:</label> 
+                <h:inputText styleClass="form-control" value="#{ogrencilerBean.entity.ogrenci_soyad}"/> <br/>
+            </div>
+            <div class="form-group">
+                <label>Ogrenci adres:</label> 
+                <h:inputText styleClass="form-control" value="#{ogrencilerBean.entity.ogrenci_adres}"/> <br/>
+            </div>
+            <div class="form-group">
+                <label>Ogrenci yaş:</label>
+                <h:inputText styleClass="form-control" value="#{ogrencilerBean.entity.ogrenci_yas}"/> <br/>
+            </div> 
+            <div class="form-group">
+                <label>Öğretmen</label>
+                <h:selectOneMenu styleClass="custom-select" value="#{ogrencilerBean.entity.ogretmen}" converter="ogretConverter">
+                    <f:selectItems value="#{ogretmenlerBean.read}" var="ogr"  itemLabel="#{ogr.ogretmen_ad}" itemValue="#{ogr}" />
+                </h:selectOneMenu>
+            </div> 
+            <h:commandButton styleClass="btn btn-success" action="#{ogrencilerBean.update()}" value="update"/>
+        </h:form>
+
+
+
+
+    </ui:define>
+</ui:composition>
